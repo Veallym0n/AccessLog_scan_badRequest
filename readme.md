@@ -1,9 +1,25 @@
 ## scan bad request from Access_log ##
 
+**About**
+ 
 ```
 vim config.py
 ```
-for simply configures, and then run
+
+for simply configures, 
+
+首先先配置些个参数，比如
+
+	+ 需要扫描的日志文件
+	+ 日志格式
+	+ 输出记录文件
+	+ 报警百分比
+	+ url预处理条件
+
+ 
+ and then run
+ 
+ 然后走着
  
 ```
 python scan.py
@@ -11,7 +27,14 @@ python scan.py
 
 this script will find the bad Request(almost like attacks log) in the access log.
 
+就能把那些参数中存在问题的URL给跑出来。基本就是个统计比值，找出阈值以下的那些东西。
+
+代码很挫，属于边看动画边写的那种，就将就好了。
+
+
 like this
+
+结果是这样的
 
 ```
 ----------------------------------------------------------------------------------------------------
