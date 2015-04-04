@@ -73,13 +73,6 @@ def db_get_key_value(hash,kv):
     return bestMatch, currentMatch
 
 
-def rdd_clear(RDD):
-    RDD.ctx.scheduler.idToStage.clear()
-    RDD.ctx.scheduler.shuffleToMapStage.clear()
-    RDD.ctx.scheduler.cacheLocs.clear()
-    RDD.ctx.scheduler.cacheTracker.clear()
-
-
 
 def get_rdd_result(r):
     return dict(

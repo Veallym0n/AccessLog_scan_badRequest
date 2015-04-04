@@ -8,10 +8,10 @@ import urllib
 
 class matchChinese:
     def findall(self,s):
-        charset='utf8'
         try:
-            us = s.decode(charset,'ignore')
-            if re.findall(ur'^[0-9a-zA-Z_\u2019-\u2020\u2e80-\u9fff+\s]+$',us):
+            for charset in ['utf8','gb18030']
+            us = s.decode(charset,'replace')
+            if re.findall(ur'^[0-9a-zA-Z_\u2019-\u2020\u2e80-\u9fff+\s\uff01-\ufff99]+$',us):
                 return True
             else:
                 return False
@@ -52,7 +52,8 @@ regexps = [
             (re.compile(r'^[a-zA-Z_]+$'),'LetterWithUline'),
             (re.compile(r'^[0-9]+[A-Za-z]+$'), 'NumLet'),
             (re.compile(r'^[A-Za-z]+[0-9]+$'), 'LetNum'),
-            (re.compile(r'^[A-Za-z0-9]+\s+[A-Za-z0-9]+$'), 'Word'),
+            (re.compile(r'^[A-Za-z0-9]+(_|-)[A-Za-z0-9]+$'), 'WordsWithUline'),
+            (re.compile(r'^[A-Za-z0-9]+\s+[A-Za-z0-9]+$'), 'Words'),
             (matchChinese(),'Chinese'),
             (IsBase64(),'Base64')
           ]
