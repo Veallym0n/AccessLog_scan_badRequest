@@ -9,8 +9,8 @@ import urllib
 class matchChinese:
     def findall(self,s):
         try:
-            for charset in ['utf8','gb18030']
-            us = s.decode(charset,'replace')
+            for charset in ['utf8','gb18030']:
+                us = s.decode(charset,'replace')
             if re.findall(ur'^[0-9a-zA-Z_\u2019-\u2020\u2e80-\u9fff+\s\uff01-\ufff99]+$',us):
                 return True
             else:
